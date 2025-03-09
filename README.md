@@ -44,6 +44,14 @@ genplif pltosout.bin vtk
 ```
 Open the mcfdsol.vtk file using paraview and save it as a .csv file named vol_data.csv. Copy the Python file **writesol.py** in the folder (or link it using ln -s to the folder) and run it. It will create a solution file named mach.sol. Make relevant changes in the Python file to read some other variable by changing the column number of the .csv file that it is instructed to read.
 
+**P.S.:** If the inital mesh was in a CFD++ readable format, along with the solution files, a *.su2* format of the mesh should also be exported using the following sequence:
+
+*Tools >> Export >> Other >> SU2 Format >> Name the file >> Run*
+
+Once the *.su2* file is present, it can be converted to .meshb for adaptation using:
+```
+ref translate inputmesh.su2 inputmesh.meshb
+```
 **3. Mesh adaptation**
 
 Once the relevant solution file is available, the adaptation can be done. Here we will use the solution
