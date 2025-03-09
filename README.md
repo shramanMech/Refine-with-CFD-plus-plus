@@ -19,7 +19,7 @@ Once, the mesh has been exported as a .su2 file, the built-in mesh converter of 
 
 **1.3. Case III: Using Refine’s bootstrap command**
 
-For using this, the geometry file must exist in the .stp or .step formats and should be converted to a .egads format. This geometry can be used to create the initial mesh. The instructions for these can be found in the Git link 1* (in section 1 ). For reference, the command for bootstrap is as follows:
+For using this, the geometry file must exist in the .stp or .step formats and should be converted to a .egads format. This geometry can be used to create the initial mesh. The instructions for these can be found in the link * (in section 1). For reference, the command for bootstrap is as follows:
 ```
 ref bootstrap geometry title.egads
 ```
