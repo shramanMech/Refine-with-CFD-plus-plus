@@ -56,7 +56,7 @@ This will create the multiscale metric file names mach-output-metric.solb. This 
 mpirun -np $NUMPROCS refmpifull adapt inputmesh.meshb --egads geometry title.egads -m mach-output-metric.solb -x mach-adapted-mesh.meshb
 ```
 
-**P.S.:** The .egads geometry file can only be passed in the command **ONLY** when the initial geometry is bootstrapped. Otherwise, the part **--egads geometry title.egads** can be removed from the command. More detailed instructions can be found [here*](https://github.com/aravind-balan/Mesh-Adaptation/tree/main).
+**P.S.:** The .egads geometry file can be passed in the command **ONLY** when the initial geometry is bootstrapped. Otherwise, the part **--egads geometry title.egads** can be removed from the command. More detailed instructions can be found [here*](https://github.com/aravind-balan/Mesh-Adaptation/tree/main).
 
 Once we have the adapted mesh, it can be converted to .su2 using the following command:
 ```
