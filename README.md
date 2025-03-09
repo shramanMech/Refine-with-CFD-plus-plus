@@ -1,5 +1,5 @@
 # Refine-with-CFD++
-A workflow for using NASA's Refine with CFD++. General instructions for mesh adaptation using [NASA's Refine]([https://github.com/nasa/refine?tab=readme-ov-file]) can be found [here*]([https://github.com/aravind-balan/Mesh-Adaptation/tree/main]).
+A workflow for using NASA's Refine with CFD++. General instructions for mesh adaptation using [NASA's Refine](https://github.com/nasa/refine?tab=readme-ov-file) can be found [here*](https://github.com/aravind-balan/Mesh-Adaptation/tree/main).
 
 ## Instructions: 
 
@@ -42,7 +42,7 @@ This will create mcfdsol.vtk for the entire volume and mcfdsol_bc*.vtk for the c
 ```
 genplif pltosout.bin vtk
 ```
-Open the mcfdsol.vtk file using paraview and save it as a .csv file named vol data.csv. Copy the Python file **writesol.py** in the folder (or link it using ln -s to the folder) and run it. It will create a solution file named mach.sol. Make relevant changes in the Python file to read some other variable by changing the column number of the .csv file that it is instructed to read.
+Open the mcfdsol.vtk file using paraview and save it as a .csv file named vol_data.csv. Copy the Python file **writesol.py** in the folder (or link it using ln -s to the folder) and run it. It will create a solution file named mach.sol. Make relevant changes in the Python file to read some other variable by changing the column number of the .csv file that it is instructed to read.
 
 **3. Mesh adaptation**
 
@@ -56,7 +56,7 @@ This will create the multiscale metric file names mach-output-metric.solb. This 
 mpirun -np $NUMPROCS refmpifull adapt inputmesh.meshb --egads geometry title.egads -m mach-output-metric.solb -x mach-adapted-mesh.meshb
 ```
 
-**P.S.:** The .egads geometry file can only be passed in the command **ONLY** when the initial geometry is bootstrapped. Otherwise, the part **--egads geometry title.egads** can be removed from the command. More detailed instructions can be found [here*]([https://github.com/aravind-balan/Mesh-Adaptation/tree/main]).
+**P.S.:** The .egads geometry file can only be passed in the command **ONLY** when the initial geometry is bootstrapped. Otherwise, the part **--egads geometry title.egads** can be removed from the command. More detailed instructions can be found [here*](https://github.com/aravind-balan/Mesh-Adaptation/tree/main).
 
 Once we have the adapted mesh, it can be converted to .su2 using the following command:
 ```
@@ -75,10 +75,10 @@ A couple of shell scripts were written to streamline the workflow. Here, two she
 Place these files in the parent folder that contains the sub-directories for all the adaptation cycles.
 The scripts are self-explanatory, and comments have been added wherever changes are required. *refall1.sh* stops executing once the *paraview* command is invoked. It should be called in the following way:
 ```
-./refall1.sh $CURRENT RUN NUMBER
+./refall1.sh $CURRENT_RUN_NUMBER
 ```
 Once the solution has been saved as *vol_data.csv*, close Paraview and run *refall2.sh*. This will invoke the CFD++ GUI and stop executing. The script should be called in the following way:
 ```
-./refall2.sh $CURRENT RUN NUMBER $NEXT RUN NUMBER $COMPLEXITY $NUMPROCS
+./refall2.sh $CURRENT_RUN_NUMBER $NEXT_RUN_NUMBER $COMPLEXITY $NUMPROCS
 ```
 Once the solver has run and the solution files have been exported (in .vtk format) through the GUI, *refall1.sh* can be run again for the next cycle.
