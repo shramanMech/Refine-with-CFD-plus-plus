@@ -2,7 +2,7 @@
 
 
 cd set_$1/$2
-echo "moving into directory corrsponding to adaptation $2 of set $1"
+echo "moving into directory corresponding to adaptation $2 of set $1"
 cd ./paraview_files
 ln -s ../../../writesol_volnsurf.py      # Change path of the Python file
 python3 writesol_volnsurf.py 
