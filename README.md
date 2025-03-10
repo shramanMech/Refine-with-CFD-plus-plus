@@ -78,15 +78,13 @@ for all the subsequent adaptation cycles.
 
 **5. Shell scripts for automation**
 
-A couple of shell scripts were written to streamline the workflow. Here, two shell scripts named **refall1.sh** and **refall2.sh** have been used. Although these scripts do not ensure complete automation, most of the steps have been added to these files to speed up the process.
+A shell script named **refall.sh**was written to streamline the workflow. Although the scripts do not ensure complete automation, most of the steps have been added to these files to speed up the process.
 
-Place these files in the parent folder that contains the sub-directories for all the adaptation cycles.
-The scripts are self-explanatory, and comments have been added wherever changes are required. *refall1.sh* stops executing once the *paraview* command is invoked. It should be called in the following way:
+Place the file in the parent folder that contains the sub-directories for all the adaptation cycles.
+The script is self-explanatory, and comments have been added wherever changes are required. It should be called in the following way:
 ```
-./refall1.sh $CURRENT_RUN_NUMBER
+./refall.sh $CURRENT_RUN_NUMBER $NEXT_RUN_NUMBER $COMPLEXITY $NUMPROCS
 ```
-Once the solution has been saved as *vol_data.csv*, close Paraview and run *refall2.sh*. This will invoke the CFD++ GUI and stop executing. The script should be called in the following way:
-```
-./refall2.sh $CURRENT_RUN_NUMBER $NEXT_RUN_NUMBER $COMPLEXITY $NUMPROCS
-```
-Once the solver has run and the solution files have been exported (in .vtk format) through the GUI, *refall1.sh* can be run again for the next cycle.
+This will invoke the CFD++ GUI and stop executing.
+
+Once the solver has run and the solution files have been exported (in .vtk format) through the GUI, *refall.sh* can be run again for the next cycle.
