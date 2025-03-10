@@ -4,13 +4,13 @@
 cd set_$1/$2
 echo "moving into directory corrsponding to adaptation $2 of set $1"
 cd ./paraview_files
-ln -s ../../../writesol_volnsurf.py
+ln -s ../../../writesol_volnsurf.py      # Change path of the Python file
 python3 writesol_volnsurf.py 
 echo "solution file has been written. starting refine..."
 cd ../
 ref multiscale inputmesh.meshb ./paraview_files/mach.sol $4 mach-output-metric.solb
 echo "multiscale metric created for target complexity of $4"
-# ref adapt inputmesh.meshb --egads ../../HEG-Cylinder.egads -m mach-output-metric.solb -x mach-adapted-mesh.meshb	# off: for hybrid; 		on: otherwise
+# ref adapt inputmesh.meshb --egads ../../HEG-Cylinder.egads -m mach-output-metric.solb -x mach-adapted-mesh.meshb	# off: for hybrid; 		on: otherwise  # Change path of the egads geometry
 ref adapt inputmesh.meshb -m mach-output-metric.solb -x mach-adapted-mesh.meshb						# off: for all except hybrid; 	on: for hybrid
 echo "adapted mesh has been created"
 ref translate mach-adapted-mesh.meshb mach-adapted-mesh.su2
