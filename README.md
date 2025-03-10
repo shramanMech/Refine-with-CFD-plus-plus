@@ -77,7 +77,7 @@ for all the subsequent adaptation cycles.
 
 **5. Shell scripts for automation**
 
-A shell script named **refall.sh**was written to streamline the workflow. Although the scripts do not ensure complete automation, most of the steps have been added to these files to speed up the process.
+A shell script named **refall.sh** was written to streamline the workflow. Although the scripts do not ensure complete automation, most of the steps have been added to these files to speed up the process.
 
 Place the file in the parent folder that contains the sub-directories for all the adaptation cycles.
 The script is self-explanatory, and comments have been added wherever changes are required. It should be called in the following way:
