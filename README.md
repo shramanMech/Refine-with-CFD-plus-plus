@@ -42,7 +42,7 @@ This will create mcfdsol.vtk for the entire volume and mcfdsol_bc*.vtk for the c
 ```
 genplif pltosout.bin vtk
 ```
-Open the mcfdsol.vtk file using paraview and save it as a .csv file named vol_data.csv. Copy the Python file **writesol.py** in the folder (or link it using ln -s to the folder) and run it. It will create a solution file named mach.sol. Make relevant changes in the Python file to read some other variable by changing the column number of the .csv file that it is instructed to read.
+Copy the Python file **writesol_volnsurf.py** in the folder (or link it using ln -s to the folder) and run it. It will create two solution files named *mach.sol* and *yplus.sol*. The script has been written to write out a volume variable and a surface variable. Make relevant changes in the Python file to read other variables by changing the variables *reqvar_vol*  and *reqvar_surf* in the Python script.
 
 **P.S.:** If the inital mesh was in a CFD++ readable format, along with the solution files, a *.su2* format of the mesh should also be exported using the following sequence:
 
@@ -54,8 +54,7 @@ ref translate inputmesh.su2 inputmesh.meshb
 ```
 **3. Mesh adaptation**
 
-Once the relevant solution file is available, the adaptation can be done. Here we will use the solution
-of the Mach number for demonstration. To create the multiscale metric, the following command is used:
+Once the relevant solution file is available, the adaptation can be done. Here we will use the solution of the Mach number for demonstration. To create the multiscale metric, the following command is used:
 ```
 mpirun -np $NUMPROCS refmpifull multiscale inputmesh.meshb ./mach.sol $COMPLEXITY mach-output-metric.solb
 ```
