@@ -58,7 +58,7 @@ Once the relevant solution file is available, the adaptation can be done. Here w
 ```
 mpirun -np $NUMPROCS refmpifull multiscale inputmesh.meshb ./mach.sol $COMPLEXITY mach-output-metric.solb
 ```
-This will create the multiscale metric file names mach-output-metric.solb. This can be used for adapting. The command for adapting the mesh is as follows:
+This will create the multiscale metric file named mach-output-metric.solb. This can be used for adapting. The command for adapting the mesh is as follows:
 ```
 mpirun -np $NUMPROCS refmpifull adapt inputmesh.meshb --egads geometry title.egads -m mach-output-metric.solb -x mach-adapted-mesh.meshb
 ```
